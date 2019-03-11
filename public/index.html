@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TCP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+  <script src="socket.io.js"></script>
+  <script src="fun.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+  <h1 class="time_status">Tid till obligatorisk fråga: <span id="time"></span></h1>
+  <h1 class="time_status">Total tid: <span id="total_time"></span></h1>
+  <h2 class="checkpoint">Ledande checkpoint: <span id="check">0</span></h2>
+  <div class="teams">
+    <div id="0" class="card">
+      <div class="card-header">
+        Lag 1 (Joel, Hannes och Lukas)
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Progress</h5>
+        <h3 id="answer-req">Frågetvång: <span id="ansreq"></span></h3>
+        <p class="card-text"></p>
+        <div class="progress">
+          <div class="progress-bar progress-b
+    console.log(timeStart);ar-striped" role="progressbar" style="width: 10%"
+            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="point-buttons">
+          <a team="0" point-method='decrement' class="btn btn-danger"><i class="fas fa-minus"></i></a>
+          <a team="0" point-method='increment' class="btn btn-success"><i class="fas fa-plus"></i></a>
+        </div>
+      </div>
+    </div>
+    <div id="1" class="card">
+      <div class="card-header">
+        Lag 2 (Anton, Edwin, Roos, Linnéa)
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Progress</h5>
+        <h3 id="answer-req">Frågetvång: <span id="ansreq"></span></h3>
+        <p class="card-text"></p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 10%" aria-valuenow="10"
+            aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="point-buttons">
+          <a team="1" point-method='decrement' class="btn btn-danger"><i class="fas fa-minus"></i></a>
+          <a team="1" point-method='increment' class="btn btn-success"><i class="fas fa-plus"></i></a>
+        </div>
+      </div>
+    </div>
+    <div id="2" class="card">
+      <div class="card-header">
+        Lag 3 (Alexander, Teodor, Petra)
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Progress</h5>
+        <h3 id="answer-req">Frågetvång: <span id="ansreq"></span></h3>
+        <p class="card-text"></p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 10%" aria-valuenow="10"
+            aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="point-buttons">
+          <a team="2" point-method='decrement' class="btn btn-danger"><i class="fas fa-minus"></i></a>
+          <a team="2" point-method='increment' class="btn btn-success"><i class="fas fa-plus"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<style>
+  body {
+    margin-top: 30px;
+  }
+
+  .teams {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .teams>.card {
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .card-body>.progress {
+    margin-bottom: 10px;
+  }
+
+  .point-buttons {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  .time_status,
+  .checkpoint {
+    text-align: center;
+  }
+</style>
+
+</html>
